@@ -1,0 +1,10 @@
+22:48:26 **** Incremental Build of configuration Debug for project cam_bien_sieu_am ****
+make -j8 all 
+arm-none-eabi-size  cam_bien_sieu_am.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33632	    468	   2076	  36176	   8d50	cam_bien_sieu_am.elf
+Finished building: default.size.stdout
+ 
+
+22:48:26 Build Finished. 0 errors, 0 warnings. (took 700ms)
+

@@ -1,0 +1,10 @@
+09:58:24 **** Incremental Build of configuration Debug for project May_bom_2_Mode ****
+make -j8 all 
+arm-none-eabi-size  May_bom_2_Mode.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36696	    468	   2148	  39312	   9990	May_bom_2_Mode.elf
+Finished building: default.size.stdout
+ 
+
+09:58:25 Build Finished. 0 errors, 0 warnings. (took 389ms)
+

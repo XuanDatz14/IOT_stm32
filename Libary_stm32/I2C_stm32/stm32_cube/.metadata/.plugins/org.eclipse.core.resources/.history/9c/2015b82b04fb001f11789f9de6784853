@@ -1,0 +1,90 @@
+#include "ds18b20.h"
+
+extern TIM_HandleTypeDef htim1;
+
+void Delay_us(uint16_t us)
+{
+    __HAL_TIM_SET_COUNTER(&htim1, 0);
+    while (__HAL_TIM_GET_COUNTER(&htim1) < us)
+        ;
+}
+
+void DS18B20_Init(void)
+{
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
+    GPIO_InitStruct.Pin = DS18B20_PIN;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(DS18B20_PORT, &GPIO_InitStruct);
+}
+
+uint8_t DS18B20_Start(void)
+{
+    HAL_GPIO_WritePin(DS18B20_PORT, DS18B20_PIN, GPIO_PIN_RESET);
+    Delay_us(480);
+    HAL_GPIO_WritePin(DS18B20_PORT, DS18B20_PIN, GPIO_PIN_SET);
+    Delay_us(70);
+
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
+    GPIO_InitStruct.Pin = DS18B20_PIN;
+    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(DS18B20_PORT, &GPIO_InitStruct);
+
+    uint8_t presence = HAL_GPIO_ReadPin(DS18B20_PORT, DS18B20_PIN);
+    Delay_us(410);
+
+    return presence;
+}
+
+void DS18B20_Write(uint8_t data)
+{
+    for (uint8_t i = 0; i < 8; i++)
+    {
+        HAL_GPIO_WritePin(DS18B20_PORT, DS18B20_PIN, GPIO_PIN_RESET);
+        Delay_us(2);
+        if (data & (1 << i))
+            HAL_GPIO_WritePin(DS18B20_PORT, DS18B20_PIN, GPIO_PIN_SET);
+        Delay_us(60);
+        HAL_GPIO_WritePin(DS18B20_PORT, DS18B20_PIN, GPIO_PIN_SET);
+        Delay_us(2);
+    }
+}
+
+uint8_t DS18B20_Read(void)
+{
+    uint8_t value = 0;
+    for (uint8_t i = 0; i < 8; i++)
+    {
+        HAL_GPIO_WritePin(DS18B20_PORT, DS18B20_PIN, GPIO_PIN_RESET);
+        Delay_us(2);
+        HAL_GPIO_WritePin(DS18B20_PORT, DS18B20_PIN, GPIO_PIN_SET);
+        Delay_us(10);
+        if (HAL_GPIO_ReadPin(DS18B20_PORT, DS18B20_PIN))
+            value |= (1 << i);
+        Delay_us(50);
+    }
+    return value;
+}
+
+float DS18B20_GetTemperature(void)
+{
+    uint8_t temp_LSB, temp_MSB;
+    int16_t temp;
+
+    DS18B20_Start();
+    DS18B20_Write(0xCC);
+    DS18B20_Write(0x44);
+
+    HAL_Delay(750);
+
+    DS18B20_Start();
+    DS18B20_Write(0xCC);
+    DS18B20_Write(0xBE);
+
+    temp_LSB = DS18B20_Read();
+    temp_MSB = DS18B20_Read();
+
+    temp = (temp_MSB << 8) | temp_LSB;
+    return (float)temp / 16.0;
+}

@@ -1,0 +1,10 @@
+13:12:15 **** Incremental Build of configuration Debug for project NHUNG_STM32 ****
+make -j8 all 
+arm-none-eabi-size  NHUNG_STM32.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30368	    468	   1996	  32832	   8040	NHUNG_STM32.elf
+Finished building: default.size.stdout
+ 
+
+13:12:15 Build Finished. 0 errors, 0 warnings. (took 259ms)
+

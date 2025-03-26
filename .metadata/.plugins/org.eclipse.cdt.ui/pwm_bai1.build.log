@@ -1,0 +1,10 @@
+23:54:26 **** Incremental Build of configuration Debug for project pwm_bai1 ****
+make -j8 all 
+arm-none-eabi-size  pwm_bai1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32720	    472	   2064	  35256	   89b8	pwm_bai1.elf
+Finished building: default.size.stdout
+ 
+
+23:54:26 Build Finished. 0 errors, 0 warnings. (took 320ms)
+

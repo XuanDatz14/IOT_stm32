@@ -1,0 +1,6 @@
+../Core/Src/I2C_LCD.c:6:6:LCD_SendCommand	1
+../Core/Src/I2C_LCD.c:14:6:LCD_SendData	1
+../Core/Src/I2C_LCD.c:22:6:LCD_Clear	1
+../Core/Src/I2C_LCD.c:28:6:LCD_PutCursor	2
+../Core/Src/I2C_LCD.c:34:6:LCD_SendString	2
+../Core/Src/I2C_LCD.c:40:6:LCD_Init	1

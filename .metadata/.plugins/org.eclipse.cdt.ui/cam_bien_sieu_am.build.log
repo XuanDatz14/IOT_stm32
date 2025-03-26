@@ -1,0 +1,20 @@
+23:54:23 **** Build of configuration Release for project cam_bien_sieu_am ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "cam_bien_sieu_am.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\stm32_cube\cam_bien_sieu_am\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="cam_bien_sieu_am.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: cam_bien_sieu_am.elf
+ 
+arm-none-eabi-size  cam_bien_sieu_am.elf 
+arm-none-eabi-objdump -h -S cam_bien_sieu_am.elf  > "cam_bien_sieu_am.list"
+   text	   data	    bss	    dec	    hex	filename
+  10536	     92	   2068	  12696	   3198	cam_bien_sieu_am.elf
+arm-none-eabi-objcopy  -O ihex cam_bien_sieu_am.elf  "cam_bien_sieu_am.hex"
+Finished building: default.size.stdout
+ 
+Finished building: cam_bien_sieu_am.hex
+Finished building: cam_bien_sieu_am.list
+ 
+ 
+
+23:54:24 Build Finished. 0 errors, 0 warnings. (took 1s.229ms)
+

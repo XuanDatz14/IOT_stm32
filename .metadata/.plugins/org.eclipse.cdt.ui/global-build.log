@@ -1,0 +1,17 @@
+21:25:14 **** Incremental Build of configuration Debug for project NHUNG_STM32_INPUT_CAPTURE ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "NHUNG_STM32_INPUT_CAPTURE.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\stm32_cube\NHUNG_STM32_INPUT_CAPTURE\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NHUNG_STM32_INPUT_CAPTURE.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: NHUNG_STM32_INPUT_CAPTURE.elf
+ 
+arm-none-eabi-size  NHUNG_STM32_INPUT_CAPTURE.elf 
+arm-none-eabi-objdump -h -S NHUNG_STM32_INPUT_CAPTURE.elf  > "NHUNG_STM32_INPUT_CAPTURE.list"
+arm-none-eabi-objcopy  -O ihex NHUNG_STM32_INPUT_CAPTURE.elf  "NHUNG_STM32_INPUT_CAPTURE.hex"
+   text	   data	    bss	    dec	    hex	filename
+  34660	    468	   2076	  37204	   9154	NHUNG_STM32_INPUT_CAPTURE.elf
+Finished building: default.size.stdout
+ 
+Finished building: NHUNG_STM32_INPUT_CAPTURE.hex
+ 
+Finished building: NHUNG_STM32_INPUT_CAPTURE.list
+ 

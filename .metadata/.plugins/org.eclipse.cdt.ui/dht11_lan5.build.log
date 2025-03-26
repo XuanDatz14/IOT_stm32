@@ -1,0 +1,20 @@
+23:54:24 **** Incremental Build of configuration Release for project dht11_lan5 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "dht11_lan5.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\stm32_cube\dht11_lan5\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="dht11_lan5.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: dht11_lan5.elf
+ 
+arm-none-eabi-size  dht11_lan5.elf 
+arm-none-eabi-objdump -h -S dht11_lan5.elf  > "dht11_lan5.list"
+   text	   data	    bss	    dec	    hex	filename
+  28260	    468	   2060	  30788	   7844	dht11_lan5.elf
+arm-none-eabi-objcopy  -O ihex dht11_lan5.elf  "dht11_lan5.hex"
+Finished building: default.size.stdout
+ 
+Finished building: dht11_lan5.hex
+ 
+Finished building: dht11_lan5.list
+ 
+
+23:54:25 Build Finished. 0 errors, 0 warnings. (took 1s.65ms)
+

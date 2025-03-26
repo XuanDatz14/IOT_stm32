@@ -1,0 +1,10 @@
+18:09:20 **** Incremental Build of configuration Debug for project NHUNG_STM32_INPUT_CAPTURE ****
+make -j8 all 
+arm-none-eabi-size  NHUNG_STM32_INPUT_CAPTURE.elf 
+   text	   data	    bss	    dec	    hex	filename
+  34536	    468	   2076	  37080	   90d8	NHUNG_STM32_INPUT_CAPTURE.elf
+Finished building: default.size.stdout
+ 
+
+18:09:21 Build Finished. 0 errors, 0 warnings. (took 564ms)
+

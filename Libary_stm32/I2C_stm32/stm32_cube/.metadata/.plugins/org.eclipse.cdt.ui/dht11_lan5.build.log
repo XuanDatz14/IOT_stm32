@@ -1,0 +1,10 @@
+21:24:54 **** Incremental Build of configuration Debug for project dht11_lan5 ****
+make -j8 all 
+arm-none-eabi-size  dht11_lan5.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32536	    468	   2060	  35064	   88f8	dht11_lan5.elf
+Finished building: default.size.stdout
+ 
+
+21:24:55 Build Finished. 0 errors, 0 warnings. (took 288ms)
+

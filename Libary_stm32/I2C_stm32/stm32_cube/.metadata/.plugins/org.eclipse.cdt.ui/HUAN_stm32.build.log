@@ -1,0 +1,10 @@
+11:24:12 **** Incremental Build of configuration Debug for project HUAN_stm32 ****
+make -j8 all 
+arm-none-eabi-size  HUAN_stm32.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35104	    472	   2064	  37640	   9308	HUAN_stm32.elf
+Finished building: default.size.stdout
+ 
+
+11:24:12 Build Finished. 0 errors, 0 warnings. (took 254ms)
+

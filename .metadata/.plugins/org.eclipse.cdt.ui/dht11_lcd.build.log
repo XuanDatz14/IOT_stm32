@@ -1,0 +1,10 @@
+13:20:09 **** Incremental Build of configuration Debug for project dht11_lcd ****
+make -j8 all 
+arm-none-eabi-size  dht11_lcd.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30704	    468	   1996	  33168	   8190	dht11_lcd.elf
+Finished building: default.size.stdout
+ 
+
+13:20:10 Build Finished. 0 errors, 0 warnings. (took 1s.319ms)
+

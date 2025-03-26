@@ -1,0 +1,10 @@
+15:57:38 **** Incremental Build of configuration Debug for project dht11_lan4 ****
+make -j8 all 
+arm-none-eabi-size  dht11_lan4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31600	    468	   1988	  34056	   8508	dht11_lan4.elf
+Finished building: default.size.stdout
+ 
+
+15:57:39 Build Finished. 0 errors, 0 warnings. (took 260ms)
+
